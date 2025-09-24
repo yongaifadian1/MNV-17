@@ -26,6 +26,13 @@
             color: #7f8c8d;
             margin-top: 25px;
         }
+        .language-section {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            margin: 20px 0;
+            padding: 20px;
+            background: #fafafa;
+        }
         .audio-sample {
             background: #f8f9fa;
             border-left: 4px solid #3498db;
@@ -77,188 +84,368 @@
         .links a:hover {
             text-decoration: underline;
         }
+        .lang-toggle {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .lang-toggle button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .lang-toggle button.active {
+            background: #2c3e50;
+        }
+        .english-content {
+            display: none;
+        }
     </style>
 </head>
 <body>
-    <h1>MNV-17 Qwen2.5-Omni Demo: Nonverbal Vocalization Recognition</h1>
-    
-    <p><strong>中文副语言识别演示 | Nonverbal Vocalization Recognition Demo</strong></p>
-    
-    <p>本页面展示了在 <a href="https://huggingface.co/datasets/maimai11/MNV_17">MNV-17 数据集</a> 上微调的 Qwen2.5-Omni 模型在非语言发声（NV）ASR识别任务上的卓越表现。</p>
-    
-    <p>This page demonstrates the excellent performance of Qwen2.5-Omni model fine-tuned on the <a href="https://huggingface.co/datasets/maimai11/MNV_17">MNV-17 dataset</a> for Nonverbal Vocalization (NV) ASR recognition tasks.</p>
+    <div class="lang-toggle">
+        <button id="zh-btn" class="active" onclick="showLanguage('zh')">中文</button>
+        <button id="en-btn" onclick="showLanguage('en')">English</button>
+    </div>
 
-    <h2>关键发现 | Key Findings</h2>
-    
-    <h3>未见说话人泛化能力 | Unseen Speaker Generalization</h3>
-    <ul>
-        <li><strong>重要说明</strong>: 所有演示样本的说话人在训练过程中完全未见</li>
-        <li><strong>Crucial Note</strong>: All demo samples are from speakers who were completely unseen during training</li>
-    </ul>
-    
-    <p>这证明了模型学会了<strong>通用的NV发声规律</strong>，而非仅仅拟合特定说话人的发声习惯，展现了优秀的跨说话人泛化能力。</p>
-    
-    <p>This demonstrates that the model learned <strong>universal NV vocalization patterns</strong> rather than merely fitting specific speakers' habits, showcasing excellent cross-speaker generalization.</p>
+    <!-- 中文内容 -->
+    <div id="chinese-content" class="chinese-content">
+        <h1>MNV-17 Qwen2.5-Omni Demo: 非语言发声识别演示</h1>
+        
+        <p>本页面展示了在 <a href="https://huggingface.co/datasets/maimai11/MNV_17">MNV-17 数据集</a> 上微调的 Qwen2.5-Omni 模型在非语言发声（NV）ASR识别任务上的卓越表现。</p>
 
-    <h2>模型性能 | Model Performance</h2>
-    
-    <p>根据我们的<a href="https://arxiv.org/abs/2509.18196">论文</a>实验结果：</p>
-    <p>According to our <a href="https://arxiv.org/abs/2509.18196">paper</a> experimental results:</p>
-    
-    <table class="performance-table">
-        <tr>
-            <th>模型 Model</th>
-            <th>联合CER</th>
-            <th>NV识别准确率</th>
-        </tr>
-        <tr class="highlight">
-            <td><strong>Qwen2.5-Omni</strong></td>
-            <td><strong>3.60%</strong></td>
-            <td><strong>57.29%</strong></td>
-        </tr>
-        <tr>
-            <td>Qwen2-Audio</td>
-            <td>4.84%</td>
-            <td>56.28%</td>
-        </tr>
-        <tr>
-            <td>SenseVoice</td>
-            <td>8.71%</td>
-            <td>57.29%</td>
-        </tr>
-        <tr>
-            <td>Paraformer</td>
-            <td>5.70%</td>
-            <td>28.64%</td>
-        </tr>
-    </table>
+        <h2>关键发现</h2>
+        
+        <h3>未见说话人泛化能力</h3>
+        <p><strong>重要说明</strong>: 所有演示样本的说话人在训练过程中完全未见</p>
+        
+        <p>这证明了模型学会了<strong>通用的NV发声规律</strong>，而非仅仅拟合特定说话人的发声习惯，展现了优秀的跨说话人泛化能力。</p>
 
-    <h2>演示样本 | Demo Samples</h2>
-    
-    <p>以下展示了在MNV-17上指令微调的Qwen2.5-Omni模型在演示样本上的预测结果：</p>
-    <p>The following shows the prediction results of Qwen2.5-Omni model fine-tuned on MNV-17 dataset on demo samples:</p>
+        <h2>模型性能</h2>
+        
+        <p>根据我们的<a href="https://arxiv.org/abs/2509.18196">论文</a>实验结果：</p>
+        
+        <table class="performance-table">
+            <tr>
+                <th>模型</th>
+                <th>联合CER</th>
+                <th>NV识别准确率</th>
+            </tr>
+            <tr class="highlight">
+                <td><strong>Qwen2.5-Omni</strong></td>
+                <td><strong>3.60%</strong></td>
+                <td><strong>57.29%</strong></td>
+            </tr>
+            <tr>
+                <td>Qwen2-Audio</td>
+                <td>4.84%</td>
+                <td>56.28%</td>
+            </tr>
+            <tr>
+                <td>SenseVoice</td>
+                <td>8.71%</td>
+                <td>57.29%</td>
+            </tr>
+            <tr>
+                <td>Paraformer</td>
+                <td>5.70%</td>
+                <td>28.64%</td>
+            </tr>
+        </table>
 
-    <div class="audio-sample">
-        <h3>样本 1 | Sample 1</h3>
-        <audio controls>
-            <source src="audio_samples/speaker_F_02_chuckle_cough_sneeze_00.wav" type="audio/wav">
-            Your browser does not support the audio element.
-        </audio>
-        <div class="prediction">
-            <strong>模型预测</strong>: 这个理论的悖论之处在于 [cough] 请大家原谅，在于它的前提本身——哎呀这粉笔灰真是 [sneeze]——它的前提本身就包含了结论，这听起来是不是很 [chuckle] 荒谬。
+        <h2>演示样本</h2>
+        
+        <p>以下展示了在MNV-17上指令微调的Qwen2.5-Omni模型在演示样本上的预测结果：</p>
+
+        <div class="audio-sample">
+            <h3>样本 1</h3>
+            <audio controls>
+                <source src="audio_samples/speaker_F_02_chuckle_cough_sneeze_00.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+            <div class="prediction">
+                <strong>模型预测</strong>: 这个理论的悖论之处在于 [cough] 请大家原谅，在于它的前提本身——哎呀这粉笔灰真是 [sneeze]——它的前提本身就包含了结论，这听起来是不是很 [chuckle] 荒谬。
+            </div>
+        </div>
+
+        <div class="audio-sample">
+            <h3>样本 2</h3>
+            <audio controls>
+                <source src="audio_samples/speaker_F_02_chuckle_hum_smack_00.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+            <div class="prediction">
+                <strong>模型预测</strong>: 我给自己泡了杯热茶 [hum]，又从冰箱里拿出那块昨天没舍得吃的提拉米苏 [smack]，然后窝在沙发里刷着搞笑视频 [laugh]，这大概就是最简单的幸福吧。
+            </div>
+        </div>
+
+        <div class="audio-sample">
+            <h3>样本 3</h3>
+            <audio controls>
+                <source src="audio_samples/speaker_F_02_clap_cough_whistle_00.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+            <div class="prediction">
+                <strong>模型预测</strong>: 他开着那辆新买的跑车 [whistle] 从我身边呼啸而过，故意在我面前停下 [cough] 做出一个自以为很帅的姿势，我当场 [clap] 就给他鼓了鼓掌，要多敷衍有多敷衍。
+            </div>
+        </div>
+
+        <div class="audio-sample">
+            <h3>样本 4</h3>
+            <audio controls>
+                <source src="audio_samples/speaker_F_03_applaud_hiss_sneeze_00.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+            <div class="prediction">
+                <strong>模型预测</strong>: 晚饭时场面一度非常热闹，我家的猫[hiss]不让新来的客人靠近，小侄女表演完节目后大家[applaud]热情鼓掌，而对胡椒粉过敏的爷爷则[sneeze]打起了喷嚏。
+            </div>
+        </div>
+
+        <div class="audio-sample">
+            <h3>样本 5</h3>
+            <audio controls>
+                <source src="audio_samples/speaker_F_03_applaud_sigh_sneeze_00.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+            <div class="prediction">
+                <strong>模型预测</strong>: 我一走进那个积满灰尘的阁楼 [sneeze] 就忍不住打了个大喷嚏，面对着堆积如山的杂物 [sigh] 真不知从何下手，但当我从旧箱子里翻出那张绝版黑胶唱片时，我简直想为自己的好运 [clap] 欢呼！
+            </div>
+        </div>
+
+        <div class="audio-sample">
+            <h3>样本 6</h3>
+            <audio controls>
+                <source src="audio_samples/speaker_F_03_laugh_moan_sneeze_00.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+            <div class="prediction">
+                <strong>模型预测</strong>: 老教授讲到他年轻时的糗事，全班 [laugh] 都笑得前仰后合，可他一提到这周末的作业 [moan] 我的头就开始疼了，而且这教室的灰尘也太多了 [sneeze]，真是让人受不了。
+            </div>
+        </div>
+
+        <div class="audio-sample">
+            <h3>样本 7</h3>
+            <audio controls>
+                <source src="audio_samples/speaker_M_02_applaud_hum_sniffle_00.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+            <div class="prediction">
+                <strong>模型预测</strong>: 看着电影里主角牺牲的画面，影院里一片 [sniffle] 的啜泣声，我却在内心为他的壮举 [applaud] 喝彩，然后长叹一口气 [hum]，思考着人性的复杂。
+            </div>
+        </div>
+
+        <div class="audio-sample">
+            <h3>样本 8</h3>
+            <audio controls>
+                <source src="audio_samples/speaker_M_03_applaud_clap_sigh_00.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+            <div class="prediction">
+                <strong>模型预测</strong>: 回想起那些独自奋斗的夜晚 [sigh]，真不知道是怎么熬过来的，但当我昨天终于攻克那个难题时 [clap]，我知道所有的付出都值得了，最终项目成功发布那一刻 [applaud]，我感受到了前所未有的成就感。
+            </div>
+        </div>
+
+        <div class="audio-sample">
+            <h3>样本 9</h3>
+            <audio controls>
+                <source src="audio_samples/speaker_M_03_exhale_hiss_sigh_00.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+            <div class="prediction">
+                <strong>模型预测</strong>: 他最终 [exhale] 放下了手中的旧照片，心想我们 [sigh] 终究还是走到了这一步，一念及此，又想起她最后那些话 [hiss]，真是刻薄又伤人。
+            </div>
+        </div>
+
+        <div class="links">
+            <h2>相关链接</h2>
+            <p>
+                <a href="https://arxiv.org/abs/2509.18196">📄 论文</a>
+                <a href="https://huggingface.co/datasets/maimai11/MNV_17">🤗 数据集</a>
+                <a href="https://github.com/yongaifadian1/MNV-17-Demo">📂 GitHub 仓库</a>
+            </p>
         </div>
     </div>
 
-    <div class="audio-sample">
-        <h3>样本 2 | Sample 2</h3>
-        <audio controls>
-            <source src="audio_samples/speaker_F_02_chuckle_hum_smack_00.wav" type="audio/wav">
-            Your browser does not support the audio element.
-        </audio>
-        <div class="prediction">
-            <strong>模型预测</strong>: 我给自己泡了杯热茶 [hum]，又从冰箱里拿出那块昨天没舍得吃的提拉米苏 [smack]，然后窝在沙发里刷着搞笑视频 [laugh]，这大概就是最简单的幸福吧。
+    <!-- 英文内容 -->
+    <div id="english-content" class="english-content">
+        <h1>MNV-17 Qwen2.5-Omni Demo: Nonverbal Vocalization Recognition</h1>
+        
+        <p>This page demonstrates the excellent performance of Qwen2.5-Omni model fine-tuned on the <a href="https://huggingface.co/datasets/maimai11/MNV_17">MNV-17 dataset</a> for Nonverbal Vocalization (NV) ASR recognition tasks.</p>
+
+        <h2>Key Findings</h2>
+        
+        <h3>Unseen Speaker Generalization</h3>
+        <p><strong>Crucial Note</strong>: All demo samples are from speakers who were completely unseen during training</p>
+        
+        <p>This demonstrates that the model learned <strong>universal NV vocalization patterns</strong> rather than merely fitting specific speakers' habits, showcasing excellent cross-speaker generalization.</p>
+
+        <h2>Model Performance</h2>
+        
+        <p>According to our <a href="https://arxiv.org/abs/2509.18196">paper</a> experimental results:</p>
+        
+        <table class="performance-table">
+            <tr>
+                <th>Model</th>
+                <th>Joint CER</th>
+                <th>NV Recognition Accuracy</th>
+            </tr>
+            <tr class="highlight">
+                <td><strong>Qwen2.5-Omni</strong></td>
+                <td><strong>3.60%</strong></td>
+                <td><strong>57.29%</strong></td>
+            </tr>
+            <tr>
+                <td>Qwen2-Audio</td>
+                <td>4.84%</td>
+                <td>56.28%</td>
+            </tr>
+            <tr>
+                <td>SenseVoice</td>
+                <td>8.71%</td>
+                <td>57.29%</td>
+            </tr>
+            <tr>
+                <td>Paraformer</td>
+                <td>5.70%</td>
+                <td>28.64%</td>
+            </tr>
+        </table>
+
+        <h2>Demo Samples</h2>
+        
+        <p>The following shows the prediction results of Qwen2.5-Omni model fine-tuned on MNV-17 dataset on demo samples:</p>
+
+        <div class="audio-sample">
+            <h3>Sample 1</h3>
+            <audio controls>
+                <source src="audio_samples/speaker_F_02_chuckle_cough_sneeze_00.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+            <div class="prediction">
+                <strong>Model Prediction</strong>: 这个理论的悖论之处在于 [cough] 请大家原谅，在于它的前提本身——哎呀这粉笔灰真是 [sneeze]——它的前提本身就包含了结论，这听起来是不是很 [chuckle] 荒谬。
+            </div>
+        </div>
+
+        <div class="audio-sample">
+            <h3>Sample 2</h3>
+            <audio controls>
+                <source src="audio_samples/speaker_F_02_chuckle_hum_smack_00.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+            <div class="prediction">
+                <strong>Model Prediction</strong>: 我给自己泡了杯热茶 [hum]，又从冰箱里拿出那块昨天没舍得吃的提拉米苏 [smack]，然后窝在沙发里刷着搞笑视频 [laugh]，这大概就是最简单的幸福吧。
+            </div>
+        </div>
+
+        <div class="audio-sample">
+            <h3>Sample 3</h3>
+            <audio controls>
+                <source src="audio_samples/speaker_F_02_clap_cough_whistle_00.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+            <div class="prediction">
+                <strong>Model Prediction</strong>: 他开着那辆新买的跑车 [whistle] 从我身边呼啸而过，故意在我面前停下 [cough] 做出一个自以为很帅的姿势，我当场 [clap] 就给他鼓了鼓掌，要多敷衍有多敷衍。
+            </div>
+        </div>
+
+        <div class="audio-sample">
+            <h3>Sample 4</h3>
+            <audio controls>
+                <source src="audio_samples/speaker_F_03_applaud_hiss_sneeze_00.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+            <div class="prediction">
+                <strong>Model Prediction</strong>: 晚饭时场面一度非常热闹，我家的猫[hiss]不让新来的客人靠近，小侄女表演完节目后大家[applaud]热情鼓掌，而对胡椒粉过敏的爷爷则[sneeze]打起了喷嚏。
+            </div>
+        </div>
+
+        <div class="audio-sample">
+            <h3>Sample 5</h3>
+            <audio controls>
+                <source src="audio_samples/speaker_F_03_applaud_sigh_sneeze_00.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+            <div class="prediction">
+                <strong>Model Prediction</strong>: 我一走进那个积满灰尘的阁楼 [sneeze] 就忍不住打了个大喷嚏，面对着堆积如山的杂物 [sigh] 真不知从何下手，但当我从旧箱子里翻出那张绝版黑胶唱片时，我简直想为自己的好运 [clap] 欢呼！
+            </div>
+        </div>
+
+        <div class="audio-sample">
+            <h3>Sample 6</h3>
+            <audio controls>
+                <source src="audio_samples/speaker_F_03_laugh_moan_sneeze_00.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+            <div class="prediction">
+                <strong>Model Prediction</strong>: 老教授讲到他年轻时的糗事，全班 [laugh] 都笑得前仰后合，可他一提到这周末的作业 [moan] 我的头就开始疼了，而且这教室的灰尘也太多了 [sneeze]，真是让人受不了。
+            </div>
+        </div>
+
+        <div class="audio-sample">
+            <h3>Sample 7</h3>
+            <audio controls>
+                <source src="audio_samples/speaker_M_02_applaud_hum_sniffle_00.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+            <div class="prediction">
+                <strong>Model Prediction</strong>: 看着电影里主角牺牲的画面，影院里一片 [sniffle] 的啜泣声，我却在内心为他的壮举 [applaud] 喝彩，然后长叹一口气 [hum]，思考着人性的复杂。
+            </div>
+        </div>
+
+        <div class="audio-sample">
+            <h3>Sample 8</h3>
+            <audio controls>
+                <source src="audio_samples/speaker_M_03_applaud_clap_sigh_00.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+            <div class="prediction">
+                <strong>Model Prediction</strong>: 回想起那些独自奋斗的夜晚 [sigh]，真不知道是怎么熬过来的，但当我昨天终于攻克那个难题时 [clap]，我知道所有的付出都值得了，最终项目成功发布那一刻 [applaud]，我感受到了前所未有的成就感。
+            </div>
+        </div>
+
+        <div class="audio-sample">
+            <h3>Sample 9</h3>
+            <audio controls>
+                <source src="audio_samples/speaker_M_03_exhale_hiss_sigh_00.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+            <div class="prediction">
+                <strong>Model Prediction</strong>: 他最终 [exhale] 放下了手中的旧照片，心想我们 [sigh] 终究还是走到了这一步，一念及此，又想起她最后那些话 [hiss]，真是刻薄又伤人。
+            </div>
+        </div>
+
+        <div class="links">
+            <h2>Related Links</h2>
+            <p>
+                <a href="https://arxiv.org/abs/2509.18196">📄 Paper</a>
+                <a href="https://huggingface.co/datasets/maimai11/MNV_17">🤗 Dataset</a>
+                <a href="https://github.com/yongaifadian1/MNV-17-Demo">📂 GitHub Repository</a>
+            </p>
         </div>
     </div>
 
-    <div class="audio-sample">
-        <h3>样本 3 | Sample 3</h3>
-        <audio controls>
-            <source src="audio_samples/speaker_F_02_clap_cough_whistle_00.wav" type="audio/wav">
-            Your browser does not support the audio element.
-        </audio>
-        <div class="prediction">
-            <strong>模型预测</strong>: 他开着那辆新买的跑车 [whistle] 从我身边呼啸而过，故意在我面前停下 [cough] 做出一个自以为很帅的姿势，我当场 [clap] 就给他鼓了鼓掌，要多敷衍有多敷衍。
-        </div>
-    </div>
-
-    <div class="audio-sample">
-        <h3>样本 4 | Sample 4</h3>
-        <audio controls>
-            <source src="audio_samples/speaker_F_03_applaud_hiss_sneeze_00.wav" type="audio/wav">
-            Your browser does not support the audio element.
-        </audio>
-        <div class="prediction">
-            <strong>模型预测</strong>: 晚饭时场面一度非常热闹，我家的猫[hiss]不让新来的客人靠近，小侄女表演完节目后大家[applaud]热情鼓掌，而对胡椒粉过敏的爷爷则[sneeze]打起了喷嚏。
-        </div>
-    </div>
-
-    <div class="audio-sample">
-        <h3>样本 5 | Sample 5</h3>
-        <audio controls>
-            <source src="audio_samples/speaker_F_03_applaud_sigh_sneeze_00.wav" type="audio/wav">
-            Your browser does not support the audio element.
-        </audio>
-        <div class="prediction">
-            <strong>模型预测</strong>: 我一走进那个积满灰尘的阁楼 [sneeze] 就忍不住打了个大喷嚏，面对着堆积如山的杂物 [sigh] 真不知从何下手，但当我从旧箱子里翻出那张绝版黑胶唱片时，我简直想为自己的好运 [clap] 欢呼！
-        </div>
-    </div>
-
-    <div class="audio-sample">
-        <h3>样本 6 | Sample 6</h3>
-        <audio controls>
-            <source src="audio_samples/speaker_F_03_laugh_moan_sneeze_00.wav" type="audio/wav">
-            Your browser does not support the audio element.
-        </audio>
-        <div class="prediction">
-            <strong>模型预测</strong>: 老教授讲到他年轻时的糗事，全班 [laugh] 都笑得前仰后合，可他一提到这周末的作业 [moan] 我的头就开始疼了，而且这教室的灰尘也太多了 [sneeze]，真是让人受不了。
-        </div>
-    </div>
-
-    <div class="audio-sample">
-        <h3>样本 7 | Sample 7</h3>
-        <audio controls>
-            <source src="audio_samples/speaker_M_02_applaud_hum_sniffle_00.wav" type="audio/wav">
-            Your browser does not support the audio element.
-        </audio>
-        <div class="prediction">
-            <strong>模型预测</strong>: 看着电影里主角牺牲的画面，影院里一片 [sniffle] 的啜泣声，我却在内心为他的壮举 [applaud] 喝彩，然后长叹一口气 [hum]，思考着人性的复杂。
-        </div>
-    </div>
-
-    <div class="audio-sample">
-        <h3>样本 8 | Sample 8</h3>
-        <audio controls>
-            <source src="audio_samples/speaker_M_03_applaud_clap_sigh_00.wav" type="audio/wav">
-            Your browser does not support the audio element.
-        </audio>
-        <div class="prediction">
-            <strong>模型预测</strong>: 回想起那些独自奋斗的夜晚 [sigh]，真不知道是怎么熬过来的，但当我昨天终于攻克那个难题时 [clap]，我知道所有的付出都值得了，最终项目成功发布那一刻 [applaud]，我感受到了前所未有的成就感。
-        </div>
-    </div>
-
-    <div class="audio-sample">
-        <h3>样本 9 | Sample 9</h3>
-        <audio controls>
-            <source src="audio_samples/speaker_M_03_exhale_hiss_sigh_00.wav" type="audio/wav">
-            Your browser does not support the audio element.
-        </audio>
-        <div class="prediction">
-            <strong>模型预测</strong>: 他最终 [exhale] 放下了手中的旧照片，心想我们 [sigh] 终究还是走到了这一步，一念及此，又想起她最后那些话 [hiss]，真是刻薄又伤人。
-        </div>
-    </div>
-
-    <div class="links">
-        <h2>相关链接 | Related Links</h2>
-        <p>
-            <a href="https://arxiv.org/abs/2509.18196">📄 论文 | Paper</a>
-            <a href="https://huggingface.co/datasets/maimai11/MNV_17">🤗 数据集 | Dataset</a>
-            <a href="https://github.com/yongaifadian1/MNV-17-Demo">📂 GitHub 仓库 | Repository</a>
-        </p>
-    </div>
-
-    <h2>引用 | Citation</h2>
-    <pre><code>@misc{mai2025mnv17highqualityperformativemandarin,
-      title={MNV-17: A High-Quality Performative Mandarin Dataset for Nonverbal Vocalization Recognition in Speech}, 
-      author={Jialong Mai and Jinxin Ji and Xiaofen Xing and Chen Yang and Weidong Chen and Jingyuan Xing and Xiangmin Xu},
-      year={2025},
-      eprint={2509.18196},
-      archivePrefix={arXiv},
-      primaryClass={cs.SD},
-      url={https://arxiv.org/abs/2509.18196}
-}</code></pre>
-
-    <hr>
-    <p><strong>作者 | Authors</strong>: Jialong Mai, Jinxin Ji, Xiaofen Xing, Chen Yang, Weidong Chen, Jingyuan Xing, Xiangmin Xu</p>
-    <p><strong>机构 | Institutions</strong>: 华南理工大学, 香港理工大学, 同济大学, 上海交通大学, 香港中文大学, 佛山大学</p>
+    <script>
+        function showLanguage(lang) {
+            const zhContent = document.getElementById('chinese-content');
+            const enContent = document.getElementById('english-content');
+            const zhBtn = document.getElementById('zh-btn');
+            const enBtn = document.getElementById('en-btn');
+            
+            if (lang === 'zh') {
+                zhContent.style.display = 'block';
+                enContent.style.display = 'none';
+                zhBtn.classList.add('active');
+                enBtn.classList.remove('active');
+            } else {
+                zhContent.style.display = 'none';
+                enContent.style.display = 'block';
+                zhBtn.classList.remove('active');
+                enBtn.classList.add('active');
+            }
+        }
+    </script>
 </body>
 </html>
