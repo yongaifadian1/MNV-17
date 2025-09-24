@@ -36,36 +36,6 @@
 1. **最低联合错误率**: Qwen2.5-Omni 实现了 3.60% 的联合字符错误率，在 ASR 和 NV 识别双重任务中表现最佳。
 2. **卓越NV识别**: 在严格的完全匹配评估下达到 57.29% 准确率（类型、数量、顺序完全匹配）。
 
-### 演示样本
-
-以下展示了在MNV-17上指令微调的Qwen2.5-Omni模型在演示样本上的预测结果：
-
-#### 样本 1
-- **模型预测**: 这个理论的悖论之处在于 [cough] 请大家原谅，在于它的前提本身——哎呀这粉笔灰真是 [sneeze]——它的前提本身就包含了结论，这听起来是不是很 [chuckle] 荒谬。
-
-#### 样本 2
-- **模型预测**: 我给自己泡了杯热茶 [hum]，又从冰箱里拿出那块昨天没舍得吃的提拉米苏 [smack]，然后窝在沙发里刷着搞笑视频 [laugh]，这大概就是最简单的幸福吧。
-
-#### 样本 3
-- **模型预测**: 他开着那辆新买的跑车 [whistle] 从我身边呼啸而过，故意在我面前停下 [cough] 做出一个自以为很帅的姿势，我当场 [clap] 就给他鼓了鼓掌，要多敷衍有多敷衍。
-
-#### 样本 4
-- **模型预测**: 晚饭时场面一度非常热闹，我家的猫[hiss]不让新来的客人靠近，小侄女表演完节目后大家[applaud]热情鼓掌，而对胡椒粉过敏的爷爷则[sneeze]打起了喷嚏。
-
-#### 样本 5
-- **模型预测**: 我一走进那个积满灰尘的阁楼 [sneeze] 就忍不住打了个大喷嚏，面对着堆积如山的杂物 [sigh] 真不知从何下手，但当我从旧箱子里翻出那张绝版黑胶唱片时，我简直想为自己的好运 [clap] 欢呼！
-
-#### 样本 6
-- **模型预测**: 老教授讲到他年轻时的糗事，全班 [laugh] 都笑得前仰后合，可他一提到这周末的作业 [moan] 我的头就开始疼了，而且这教室的灰尘也太多了 [sneeze]，真是让人受不了。
-
-#### 样本 7
-- **模型预测**: 看着电影里主角牺牲的画面，影院里一片 [sniffle] 的啜泣声，我却在内心为他的壮举 [applaud] 喝彩，然后长叹一口气 [hum]，思考着人性的复杂。
-
-#### 样本 8
-- **模型预测**: 回想起那些独自奋斗的夜晚 [sigh]，真不知道是怎么熬过来的，但当我昨天终于攻克那个难题时 [clap]，我知道所有的付出都值得了，最终项目成功发布那一刻 [applaud]，我感受到了前所未有的成就感。
-
-#### 样本 9
-- **模型预测**: 他最终 [exhale] 放下了手中的旧照片，心想我们 [sigh] 终究还是走到了这一步，一念及此，又想起她最后那些话 [hiss]，真是刻薄又伤人。
 
 ### 数据集特点
 
@@ -151,36 +121,6 @@ According to our [paper](https://arxiv.org/abs/2509.18196) experimental results:
 1. **Lowest Joint Error Rate**: Qwen2.5-Omni achieved 3.60% joint CER, best performance in dual ASR and NV recognition tasks.
 2. **Excellent NV Recognition**: 57.29% accuracy under strict exact-match evaluation (type, count, order must all match).
 
-### Demo Samples
-
-The following shows the prediction results of Qwen2.5-Omni model fine-tuned on MNV-17 dataset on demo samples:
-
-#### Sample 1
-- **Model Prediction**: 这个理论的悖论之处在于 [cough] 请大家原谅，在于它的前提本身——哎呀这粉笔灰真是 [sneeze]——它的前提本身就包含了结论，这听起来是不是很 [chuckle] 荒谬。
-
-#### Sample 2
-- **Model Prediction**: 我给自己泡了杯热茶 [hum]，又从冰箱里拿出那块昨天没舍得吃的提拉米苏 [smack]，然后窝在沙发里刷着搞笑视频 [laugh]，这大概就是最简单的幸福吧。
-
-#### Sample 3
-- **Model Prediction**: 他开着那辆新买的跑车 [whistle] 从我身边呼啸而过，故意在我面前停下 [cough] 做出一个自以为很帅的姿势，我当场 [clap] 就给他鼓了鼓掌，要多敷衍有多敷衍。
-
-#### Sample 4
-- **Model Prediction**: 晚饭时场面一度非常热闹，我家的猫[hiss]不让新来的客人靠近，小侄女表演完节目后大家[applaud]热情鼓掌，而对胡椒粉过敏的爷爷则[sneeze]打起了喷嚏。
-
-#### Sample 5
-- **Model Prediction**: 我一走进那个积满灰尘的阁楼 [sneeze] 就忍不住打了个大喷嚏，面对着堆积如山的杂物 [sigh] 真不知从何下手，但当我从旧箱子里翻出那张绝版黑胶唱片时，我简直想为自己的好运 [clap] 欢呼！
-
-#### Sample 6
-- **Model Prediction**: 老教授讲到他年轻时的糗事，全班 [laugh] 都笑得前仰后合，可他一提到这周末的作业 [moan] 我的头就开始疼了，而且这教室的灰尘也太多了 [sneeze]，真是让人受不了。
-
-#### Sample 7
-- **Model Prediction**: 看着电影里主角牺牲的画面，影院里一片 [sniffle] 的啜泣声，我却在内心为他的壮举 [applaud] 喝彩，然后长叹一口气 [hum]，思考着人性的复杂。
-
-#### Sample 8
-- **Model Prediction**: 回想起那些独自奋斗的夜晚 [sigh]，真不知道是怎么熬过来的，但当我昨天终于攻克那个难题时 [clap]，我知道所有的付出都值得了，最终项目成功发布那一刻 [applaud]，我感受到了前所未有的成就感。
-
-#### Sample 9
-- **Model Prediction**: 他最终 [exhale] 放下了手中的旧照片，心想我们 [sigh] 终究还是走到了这一步，一念及此，又想起她最后那些话 [hiss]，真是刻薄又伤人。
 
 ### Dataset Characteristics
 
