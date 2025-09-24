@@ -1,0 +1,19 @@
+# 忽略临时文件
+*.tmp
+*.bak
+.DS_Store
+
+# 忽略批处理文件（仅用于初始设置）
+copy_audio_files.bat
+
+# 忽略Python缓存
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# 忽略编辑器文件
+.vscode/
+.idea/
+*.swp
+*.swo
