@@ -13,8 +13,8 @@ This repository demonstrates the excellent performance of Qwen2.5-Omni model fin
 ## 关键发现 | Key Findings
 
 ### 未见说话人泛化能力 | Unseen Speaker Generalization
-- **重要说明**: 所有演示音频均来自测试集说话人（speaker_F_02, speaker_F_03, speaker_M_02, speaker_M_03），这些说话人在训练过程中完全未见
-- **Crucial Note**: All demo audio samples are from test set speakers (speaker_F_02, speaker_F_03, speaker_M_02, speaker_M_03), who were completely unseen during training
+- **重要说明**: 所有演示样本的说话人在训练过程中完全未见
+- **Crucial Note**: All demo samples are from speakers who were completely unseen during training
 
 这证明了模型学会了**通用的NV发声规律**，而非仅仅拟合特定说话人的发声习惯，展现了优秀的跨说话人泛化能力。
 
