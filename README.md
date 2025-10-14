@@ -1,4 +1,4 @@
-# MNV-17 Demo
+# MNV-17
 
 [**中文版本**](#中文版本) | [**English Version**](#english-version)
 
@@ -6,9 +6,9 @@
 
 ## 中文版本
 
-### MNV-17 演示：非语言发声识别
+### MNV-17：非语言发声识别
 
-本仓库展示了在 [MNV-17 数据集](https://huggingface.co/datasets/maimai11/MNV_17) 上微调的 Qwen2.5-Omni/Qwen2-audio-instruct 模型在非语言发声（NV）ASR识别任务上的卓越表现和推理代码。
+本仓库展示了在 [MNV-17 数据集](https://huggingface.co/datasets/maimai11/MNV_17) 上微调的 Qwen2.5-Omni 模型在非语言发声（NV）ASR识别任务上的卓越表现。同时提供了Qwen2.5-Omni和Qwen2-Audio的推理脚本。
 
 **[点击这里体验可播放的音频演示](https://yongaifadian1.github.io/MNV-17/)**
 
@@ -132,9 +132,9 @@ python inference.py \
 
 ## English Version
 
-### MNV-17 Demo: Nonverbal Vocalization Recognition
+### MNV-17: Nonverbal Vocalization Recognition
 
-This repository demonstrates the excellent performance of Qwen2.5-Omni model fine-tuned on the [MNV-17 dataset](https://huggingface.co/datasets/maimai11/MNV_17) for Nonverbal Vocalization (NV) ASR recognition tasks.
+This repository demonstrates the excellent performance of Qwen2.5-Omni and Qwen2-Audio models fine-tuned on the [MNV-17 dataset](https://huggingface.co/datasets/maimai11/MNV_17) for Nonverbal Vocalization (NV) ASR recognition tasks. It also provides inference scripts for Qwen2.5-Omni and Qwen2-Audio.
 
 **[Click here for interactive audio demo](https://yongaifadian1.github.io/MNV-17/)**
 
@@ -225,7 +225,7 @@ python inference.py \
 
 - 📄 **Paper**: [MNV-17: A High-Quality Performative Mandarin Dataset for Nonverbal Vocalization Recognition in Speech](https://arxiv.org/abs/2509.18196)
 - 🤗 **Dataset**: [maimai11/MNV_17](https://huggingface.co/datasets/maimai11/MNV_17)
-- 🤖 **Fine-tuned Model**: [Qwen2.5-Omni-7B-MNV17](https://drive.google.com/file/d/1wxsmkUFZpyZHL8fd3PT7iF-c4vmxd6hS/view?usp=drive_link)
+- 🤖 **Fine-tuned Model**: [MNV17](https://drive.google.com/file/d/1wxsmkUFZpyZHL8fd3PT7iF-c4vmxd6hS/view?usp=drive_link)
 
 ### Citation
 
@@ -255,3 +255,4 @@ If you use this dataset or related work, please cite:
 **Authors**: Jialong Mai, Jinxin Ji, Xiaofen Xing, Chen Yang, Weidong Chen, Jingyuan Xing, Xiangmin Xu
 
 **Institutions**: South China University of Technology, The Hong Kong Polytechnic University, Tongji University, Shanghai Jiao Tong University, The Chinese University of Hong Kong, Foshan University
+
