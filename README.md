@@ -1,4 +1,4 @@
-# MNV-17 Qwen2.5-Omni Demo
+# MNV-17 Demo
 
 [**中文版本**](#中文版本) | [**English Version**](#english-version)
 
@@ -6,9 +6,9 @@
 
 ## 中文版本
 
-### MNV-17 Qwen2.5-Omni 演示：非语言发声识别
+### MNV-17 演示：非语言发声识别
 
-本仓库展示了在 [MNV-17 数据集](https://huggingface.co/datasets/maimai11/MNV_17) 上微调的 Qwen2.5-Omni 模型在非语言发声（NV）ASR识别任务上的卓越表现。
+本仓库展示了在 [MNV-17 数据集](https://huggingface.co/datasets/maimai11/MNV_17) 上微调的 Qwen2.5-Omni/Qwen2-audio-instruct 模型在非语言发声（NV）ASR识别任务上的卓越表现和推理代码。
 
 **[点击这里体验可播放的音频演示](https://yongaifadian1.github.io/MNV-17/)**
 
@@ -132,7 +132,7 @@ python inference.py \
 
 ## English Version
 
-### MNV-17 Qwen2.5-Omni Demo: Nonverbal Vocalization Recognition
+### MNV-17 Demo: Nonverbal Vocalization Recognition
 
 This repository demonstrates the excellent performance of Qwen2.5-Omni model fine-tuned on the [MNV-17 dataset](https://huggingface.co/datasets/maimai11/MNV_17) for Nonverbal Vocalization (NV) ASR recognition tasks.
 
