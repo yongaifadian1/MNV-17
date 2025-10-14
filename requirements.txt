@@ -1,0 +1,15 @@
+# MNV-17 推理环境依赖
+
+# 基础框架
+torch>=2.0.0
+transformers>=4.35.0
+ms-swift>=2.0.0
+peft>=0.5.0  # 用于PEFT方式加载LoRA
+
+# 音频处理
+librosa>=0.10.0
+soundfile>=0.12.0
+
+# 工具库
+tqdm>=4.66.0
+numpy>=1.24.0

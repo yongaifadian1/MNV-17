@@ -52,6 +52,47 @@
 - **多NV组合**: 支持1-3个NV的随机组合，模拟真实场景。
 - **说话人独立划分**: 严格的训练/验证/测试集划分，确保泛化评估。
 
+### 快速开始
+
+#### 环境配置
+
+```bash
+# 安装依赖
+pip install -r requirements.txt
+```
+
+#### 推理测试
+
+本仓库提供了两个模型的推理脚本，以Qwen2.5-Omni为例：
+
+
+
+```bash
+cd examples/qwen2.5omni
+bash run_qwen25omni.sh
+```
+
+默认参数：
+- 基础模型：`Qwen/Qwen2.5-Omni-7B`（支持自动从 ModelScope/HuggingFace 下载）
+- LoRA 权重：`../../ckpt/qwen25-omni-7b-finetuned/v0-20250914-150113/checkpoint-192`（需从链接下载）
+- 测试数据：`../testset/test.jsonl`
+
+
+
+#### 自定义参数
+
+您可以直接编辑 shell 脚本或运行时传入参数：
+
+```bash
+python inference.py \
+    --base_model "your/model/path" \
+    --checkpoint "your/lora/path" \
+    --test_file "your/test/file.jsonl" \
+    --output_file "output.jsonl" \
+    --num_samples 50 \
+    --gpu_id "0"
+```
+
 ### 相关链接
 
 - 📄 **论文**: [MNV-17: A High-Quality Performative Mandarin Dataset for Nonverbal Vocalization Recognition in Speech](https://arxiv.org/abs/2509.18196)
@@ -137,11 +178,54 @@ According to our [paper](https://arxiv.org/abs/2509.18196) experimental results:
 - **Multi-NV Combinations**: Supports random combinations of 1-3 NVs, simulating real scenarios.
 - **Speaker-Independent Split**: Strict train/validation/test division ensures generalization evaluation.
 
+### Quick Start
+
+#### Environment Setup
+
+```bash
+# Install dependencies
+pip install -r requirements.txt
+```
+
+#### Inference Testing
+
+This repository provides inference scripts for two models, Qwen2.5-Omni as an example:
+
+
+
+```bash
+cd examples/qwen2.5omni
+bash run_qwen25omni.sh
+```
+
+Default parameters:
+- Base model: `Qwen/Qwen2.5-Omni-7B` (supports auto-download from ModelScope/HuggingFace)
+- LoRA weights: `../../ckpt/qwen25-omni-7b-finetuned/v0-20250914-150113/checkpoint-192` (need to download from link)
+- Test data: `../testset/test.jsonl` 
+
+
+
+
+#### Custom Parameters
+
+You can edit the shell scripts directly or pass parameters at runtime:
+
+```bash
+python inference.py \
+    --base_model "your/model/path" \
+    --checkpoint "your/lora/path" \
+    --test_file "your/test/file.jsonl" \
+    --output_file "output.jsonl" \
+    --num_samples 50 \
+    --gpu_id "0"
+
+```
+
 ### Related Links
 
 - 📄 **Paper**: [MNV-17: A High-Quality Performative Mandarin Dataset for Nonverbal Vocalization Recognition in Speech](https://arxiv.org/abs/2509.18196)
 - 🤗 **Dataset**: [maimai11/MNV_17](https://huggingface.co/datasets/maimai11/MNV_17)
-- 🤖 **Fine-tuned Model**: [Coming Soon]
+- 🤖 **Fine-tuned Model**: [Qwen2.5-Omni-7B-MNV17](https://drive.google.com/file/d/1wxsmkUFZpyZHL8fd3PT7iF-c4vmxd6hS/view?usp=drive_link)
 
 ### Citation
 

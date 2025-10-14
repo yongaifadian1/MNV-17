@@ -17,3 +17,7 @@ __pycache__/
 .idea/
 *.swp
 *.swo
+#忽略模型权重（ckpt）
+ckpt/
+
+
