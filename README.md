@@ -97,7 +97,7 @@ python inference.py \
 
 - 📄 **论文**: [MNV-17: A High-Quality Performative Mandarin Dataset for Nonverbal Vocalization Recognition in Speech](https://arxiv.org/abs/2509.18196)
 - 🤗 **数据集**: [maimai11/MNV_17](https://huggingface.co/datasets/maimai11/MNV_17)
-- 🤖 **微调模型**: [Qwen2.5-Omni-7B-MNV17](https://drive.google.com/file/d/1wxsmkUFZpyZHL8fd3PT7iF-c4vmxd6hS/view?usp=drive_link)
+- 🤖 **微调模型**: [Qwen2.5-Omni-7B-MNV17](https://huggingface.co/kiiic/MNV-17-Qwen-fintune)
 
 ### 引用
 
@@ -225,7 +225,7 @@ python inference.py \
 
 - 📄 **Paper**: [MNV-17: A High-Quality Performative Mandarin Dataset for Nonverbal Vocalization Recognition in Speech](https://arxiv.org/abs/2509.18196)
 - 🤗 **Dataset**: [maimai11/MNV_17](https://huggingface.co/datasets/maimai11/MNV_17)
-- 🤖 **Fine-tuned Model**: [MNV17](https://drive.google.com/file/d/1wxsmkUFZpyZHL8fd3PT7iF-c4vmxd6hS/view?usp=drive_link)
+- 🤖 **Fine-tuned Model**: [MNV17](https://huggingface.co/kiiic/MNV-17-Qwen-fintune)
 
 ### Citation
 
