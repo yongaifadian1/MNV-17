@@ -20,6 +20,15 @@
 
 这证明了模型学会了**通用的NV发声规律**，而非仅仅拟合特定说话人的发声习惯，展现了优秀的跨说话人泛化能力。
 
+#### 域外与跨语种泛化
+
+我们新增了 `audio_samples/out_of_domain/` 与 `audio_samples/cross_language/` 两组示例，展示在 MNV-17 上微调的 Qwen2.5-Omni 还能：
+
+1. **域外泛化**：在环境噪声、叙事风格等均与训练语料不同的样本上保持稳定输出。
+2. **跨语种泛化**：在中英夹杂乃至纯英文的语音里正确插入非语言标签，说明模型并不依赖特定语种语境。
+
+> 示例音频可直接在顶端 Demo 页面中播放，或从 `audio_samples/out_of_domain` 与 `audio_samples/cross_language` 文件夹中找到对应 wav。
+
 ### 模型性能
 
 根据我们的[论文](https://arxiv.org/abs/2509.18196)实验结果：
@@ -146,6 +155,15 @@ This repository demonstrates the excellent performance of Qwen2.5-Omni and Qwen2
 
 This demonstrates that the model learned **universal NV vocalization patterns** rather than merely fitting specific speakers' habits, showcasing excellent cross-speaker generalization.
 
+#### Out-of-Domain & Cross-Language Generalization
+
+Two new folders, `audio_samples/out_of_domain/` and `audio_samples/cross_language/`, provide evidence that the Qwen2.5-Omni fine-tuned on MNV-17:
+
+1. **Handles domain shift**: Remains robust when background noise, storytelling style, and acoustic conditions differ from the training corpus.
+2. **Transfers across languages**: Inserts the right NV tags even in mixed Mandarin-English or fully English utterances.
+
+> All clips are playable on the Demo page (link above) and reside locally under the two folders for offline inspection.
+
 ### Model Performance
 
 According to our [paper](https://arxiv.org/abs/2509.18196) experimental results:
@@ -255,4 +273,3 @@ If you use this dataset or related work, please cite:
 **Authors**: Jialong Mai, Jinxin Ji, Xiaofen Xing, Chen Yang, Weidong Chen, Jingyuan Xing, Xiangmin Xu
 
 **Institutions**: South China University of Technology, The Hong Kong Polytechnic University, Tongji University, Shanghai Jiao Tong University, The Chinese University of Hong Kong, Foshan University
-
